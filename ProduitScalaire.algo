@@ -1,0 +1,48 @@
+/*****************procedure******************/
+/*declaration de la procedure*/
+PROCEDURE dot_product(V1,V2 : ARRAY_OF INTEGER[], var ps :INTEGER)
+VAR
+    i:INTEGER :=0;
+BEGIN
+    ps:=0;
+    FOR i FROM 1 TO V1.length STEP 1  DO
+        
+            ps:=ps + V1[i]*V2[i];
+        
+    END_FOR
+END
+ALGORITHM  Dot_product
+VAR
+    T1 : ARRAY_OF INTEGER[];[-1,1];
+    T2 : ARRAY_OF INTEGER[][];[5,5];
+    PC:INTEGER;
+
+BEGIN
+    dot_product(T1,T2,PC);
+    IF (PC=0) THEN
+        Write ("les 2 vecteurs sont ortogonaux");
+        ELSE
+        Write ("non ortogonaux");
+    END_IF
+END
+/******************declaration de la fonction***************************/
+FUNCTION dot_product(V1,V2 : ARRAY_OF INTEGER[]) : INTEGER
+VAR
+    i:INTEGER;
+    res:INTEGER:=0;
+BEGIN
+    res:=res + V1[i]*V2[i];
+    RETURN res ;
+END
+
+ALGORITHM product_cart
+VAR
+    T1,T2,PC:INTEGER;
+BEGIN
+    pc:=dot_product(T1,T2);
+    IF (pc=0) THEN
+        Write ("les 2 vecteurs sont orthogonaux");
+    ELSE
+        Write ("non orthogonaux");
+    END_IF
+END

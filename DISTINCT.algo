@@ -1,0 +1,32 @@
+ALGORITHM algorithm_name
+VAR
+    * declaration des tableaux*/
+    T1 : ARRAY_OF INTEGER[] :=3,1,7,9; 
+    T2 : ARRAY_OF INTEGER[] :=2,4,1,9,3
+    /*declaration des compteurs*/
+    i:INTEGER:=1;
+    j:INTEGER:=1;
+    /*declaration de la variable distint*/
+    distinct:INTEGER:=0;
+
+
+BEGIN
+/*parcours des deux tableaux*/
+FOR i FROM 1 TO T1.length STEP 1 DO
+        FOR j FROM 1 TO T2.length STEP 1 DO
+        /*la somme de tous les elements de deux tableaux*/
+            distinct:=distinct +T1[i] + T2[j];
+        END_FOR
+    END_FOR
+    FOR i FROM 1 TO T1.length STEP 1  DO
+        j:=0;
+        /*a chaque fois qu'on trouve des elements communs on le soustrait de la variable distinct*/
+        REPEAT
+            j:=j+1;
+        UNTIL (T1[i]=T2[j] and j<=T2.length) DO
+        IF (j<=T2.length) THEN
+            distinct:=distinct-T1[i]-T2[j];
+        END_IF 
+    END_FOR
+    Write("la somme des elements distiinct est:",distiinct);
+END
